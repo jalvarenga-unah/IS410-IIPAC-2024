@@ -28,20 +28,21 @@ public class MiPrimerApp {
         nombre = nombre + " Enrique";
 
         //asignación de valores a las propiedades
-        p1.nombre = nombre; // set
+        p1.setNombre(nombre);
         p1.edad = edad;
 
         System.out.println("=========== propiedades de la clase P1 ============");
-        System.out.println(p1.nombre); //get
+        System.out.println(p1.getNombre()); //get
         System.out.println(p1.edad);
 
         Persona p2 = new Persona();
-        
+
         //inicialización de las propiedades
-        p2.nombre = "Pedro";
+//        p2.nombre = "Pedro";
+        p2.setNombre("    ");
 
         System.out.println("=========== propiedades de la clase P2 ============");
-        System.out.println(p2.nombre);
+        System.out.println(p2.getNombre());
         System.out.println(p2.edad);
 
         // es una Instancia (extensión) de la clase MyPrimerApp

@@ -9,20 +9,44 @@ package miprimerapp;
  * @author juanalvarenga
  */
 public class Persona {
-    
-    
+
     // Propiedades (Publicas) por lo tanto, se comportan como
     // "getters" y "setters"
-    String nombre;
+    //público
+    private String nombre;
     int edad;
-    
+
     //Constructor, se ejecuta al inicio o creación de la instancia
-    Persona(){
-    
+    Persona() {
+
+    }
+
+    //Comportamientos (métodos)
+    //retornar el valor de la propiedad nombre
+    String getNombre() {
+        return this.nombre;
+    }
+
+    void setNombre(String nombre) {
+
+        // condicionar que no inicialicen con una cadena vacia
+//        if (nombre.length() == 0) {
+//            //yo no voy a inicializar la propiedad
+//            System.out.println("No se puede inicializar con una cadena vacía");
+//        }
+        if (nombre.isBlank()) {
+            //yo no voy a inicializar la propiedad
+            System.out.println("No se puede inicializar con una cadena vacía");
+            
+            //TODO: generar un excepción
+            
+            return; // esto finaliza la ejecución del resto de código del método
+        } 
+            
+        this.nombre = nombre;
+        
     }
     
-    
-    
-    //Comportamientos (métodos)
-    
+    //TODO: crear metodos getter y setter de la propiedad edad
+
 }
