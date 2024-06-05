@@ -20,6 +20,15 @@ public class Persona {
     Persona() {
 
     }
+    
+    Persona(String nombre, int edad){
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+    
+    Persona(String nombre){
+        this.nombre = nombre;
+    }
 
     //Comportamientos (métodos)
     //retornar el valor de la propiedad nombre
@@ -48,5 +57,17 @@ public class Persona {
     }
     
     //TODO: crear metodos getter y setter de la propiedad edad
+    
+    public void setEdad(int edad){
+        
+        if(edad < 0) System.out.println("La edad no puede ser negativa");
+        
+        this.edad = edad;
+        
+    }
+    
+    public int getEdad(){
+        return this.edad;
+    }
 
 }
