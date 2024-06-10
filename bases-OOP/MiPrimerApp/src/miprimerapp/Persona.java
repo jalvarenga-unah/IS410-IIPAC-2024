@@ -20,14 +20,25 @@ public class Persona {
     Persona() {
 
     }
+    //UNAHVS123*
     
     Persona(String nombre, int edad){
         this.nombre = nombre;
         this.edad = edad;
     }
     
+    Persona(int edad, String nombre){
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+    
+    
     Persona(String nombre){
         this.nombre = nombre;
+    }
+    
+    Persona(int edad){
+        this.edad = edad;
     }
 
     //Comportamientos (métodos)

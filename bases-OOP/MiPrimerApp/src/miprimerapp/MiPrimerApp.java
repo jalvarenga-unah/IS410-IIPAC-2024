@@ -48,6 +48,21 @@ public class MiPrimerApp {
         // es una Instancia (extensión) de la clase MyPrimerApp
         // "this", hace referencia hacia si misma (MiPrimerApp)
 //        this.edad = 20;
+
+        Producto producto1 = new Producto("Coca-Cola", 20.0, true);
+        
+        //Intentar, ejecutar una instrucción
+        try { 
+            
+            // potencialmente, peuden fallar
+            producto1.setTipoImpuesto( 0.18 );
+            
+        }catch(Exception mensaje){
+            // TODO: Mostrar una alerta al usuario, que está ingresando mal el ISV
+            System.out.println(mensaje.getMessage());  
+            
+        }
+        
     }
 
 }
