@@ -20,12 +20,24 @@ public class Animales {
         Perro polar = new Perro("Polar", 4, "pollito", true);
         Perro dolar = new Perro("No tiene apodo", "Polar", 4, "pollito");
         
-
+        Gato michi = new Gato("Colita", 2, "pescado");
+//        Animal a1 = new Animal("firulais",3, "croquetas");
+    
         System.out.println(Perro.algo);
-        apolo.ladrar();
+        
+        apolo.emitirSonido();  
+        apolo.desplazarse();
+//        apolo.ejecutarDormir();
+        
+        polar.cazar("gallina");
+            
+//        apolo.ladrar();
         apolo.mostrarInformacion();
 
-        dolar.mostrarInformacion();
+        michi.emitirSonido();
+//        michi.maullar();
+        michi.mostrarInformacion();
+        michi.cazar("raton");
 
     }
 

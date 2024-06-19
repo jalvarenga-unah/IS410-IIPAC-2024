@@ -8,7 +8,7 @@ package animales;
  *
  * @author juanalvarenga
  */
-public class Perro extends Animal {
+public class Perro extends Animal implements AccionesAnimales {
     
     // no requiere de una instancia para ser accedida
     static String algo = "son muy juguetones";
@@ -28,9 +28,25 @@ public class Perro extends Animal {
         super(nombre, edad, alimentacion);
     }
 
-    public void ladrar() {
-        System.out.println(nombre + " está ladrando");
-        System.out.println(nombre + " está ladrando");
+//    public void ladrar() {
+//        System.out.println(nombre + " está ladrando");
+//    }
+
+    @Override
+    public void emitirSonido() {
+       System.out.println(nombre + " está ladrando");
+    }
+
+    @Override
+    public void cazar(String animal) {
+        System.out.println(nombre + " está cazando un "+ animal);
+    }
+
+    @Override
+    public void desplazarse() {
+        
+//        super.ejecutarDormir();
+        System.out.println("El perro a veces corre y a veces camina");
     }
 
 }

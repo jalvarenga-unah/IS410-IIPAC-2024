@@ -8,7 +8,7 @@ package animales;
  *
  * @author juanalvarenga
  */
-public class Animal {
+abstract class Animal {
 
     //publicas
     protected String nombre;
@@ -24,7 +24,14 @@ public class Animal {
     public void mostrarInformacion() {
         System.out.println(" Nombre: " + this.nombre + " edad: " + this.edad);
         System.out.println("come: " + tipoAlimento);
-
     }
-
+    
+    public void dormir(){
+        System.out.println(nombre+ " está durmiendo");
+    }
+    
+//    public void ejecutarDormir(){
+//        dormir(); // puedo acceder si es privado
+//    }
+    
 }
