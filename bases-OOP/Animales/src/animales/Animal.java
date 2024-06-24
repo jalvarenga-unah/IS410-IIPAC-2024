@@ -11,8 +11,8 @@ package animales;
 abstract class Animal {
 
     //publicas
-    protected String nombre;
-    public int edad;
+    final protected String nombre; // final convierte a la propiedad en una constante
+    public int  edad; 
     public String tipoAlimento;
 
     Animal(String nombre, int edad, String tipoAlimento) {
@@ -22,7 +22,7 @@ abstract class Animal {
     }
 
     public void mostrarInformacion() {
-        System.out.println(" Nombre: " + this.nombre + " edad: " + this.edad);
+        System.out.println("Nombre: " + this.nombre + " edad: " + this.edad);
         System.out.println("come: " + tipoAlimento);
     }
     

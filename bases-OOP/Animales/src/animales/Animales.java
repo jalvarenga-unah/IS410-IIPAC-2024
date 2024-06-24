@@ -23,21 +23,21 @@ public class Animales {
         Gato michi = new Gato("Colita", 2, "pescado");
 //        Animal a1 = new Animal("firulais",3, "croquetas");
     
-        System.out.println(Perro.algo);
+//        System.out.println(Perro.algo);
         
-        apolo.emitirSonido();  
-        apolo.desplazarse();
+//        apolo.emitirSonido();  
+//        apolo.desplazarse();
 //        apolo.ejecutarDormir();
         
-        polar.cazar("gallina");
+//        polar.cazar("gallina");
             
 //        apolo.ladrar();
         apolo.mostrarInformacion();
 
-        michi.emitirSonido();
+//        michi.emitirSonido();
 //        michi.maullar();
         michi.mostrarInformacion();
-        michi.cazar("raton");
+//        michi.cazar("raton");
 
     }
 
