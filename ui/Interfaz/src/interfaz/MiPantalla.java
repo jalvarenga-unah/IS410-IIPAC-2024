@@ -11,13 +11,46 @@ import javax.swing.JOptionPane;
  * @author juanalvarenga
  */
 public class MiPantalla extends javax.swing.JFrame {
+    
+    void suma() {
+        
+        int num1 = 0;
+        int num2 = 0;
+        
+        try {
+            String valor1 = txtNum1.getText();
+            String valor2 = txtNum2.getText();
+            
+            String a = "a";
+            String b = "b";
+            String c = a+b;
+            
+//            if((a+b) == c) // false
+            
+            if (valor1.equals("") || valor2.equals("")) {
+                return;
+            }
+            
+            num1 = Integer.parseInt(valor1); // retorna un String
+            num2 = Integer.parseInt(valor2); // retorna un String
+
+            int resultado = num1 + num2;
+            
+            lblResultado.setText(String.valueOf(resultado));
+            
+        } catch (NumberFormatException e) {
+            
+            JOptionPane.showMessageDialog(this, "Los valores enviados no son válidos", "Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }
 
     /**
      * Creates new form MiPantalla
      */
     public MiPantalla() {
         initComponents();
-
+        
     }
 
     /**
@@ -29,64 +62,108 @@ public class MiPantalla extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitulo = new javax.swing.JLabel();
-        lblSubtitulo = new javax.swing.JLabel();
-        btnClic1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtNum1 = new javax.swing.JTextField();
+        txtNum2 = new javax.swing.JTextField();
+        btnSuma = new javax.swing.JButton();
+        lblResultado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setName("principal"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(800, 800));
+        setResizable(false);
 
-        lblTitulo.setBackground(new java.awt.Color(204, 255, 153));
-        lblTitulo.setFont(new java.awt.Font("Helvetica Neue", 0, 20)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(51, 51, 255));
-        lblTitulo.setText("Hola Mundo");
-        lblTitulo.setName("titulo"); // NOI18N
-        lblTitulo.setSize(new java.awt.Dimension(600, 600));
+        jLabel1.setText("Numero 1:");
 
-        lblSubtitulo.setText("Mi primer interfaz");
+        jLabel2.setText("Numero 2:");
 
-        btnClic1.setText("Cambiar texto");
-        btnClic1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cambioTextoClic(evt);
+        txtNum1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        txtNum1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNum1KeyReleased(evt);
             }
         });
+
+        txtNum2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        txtNum2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNum2KeyReleased(evt);
+            }
+        });
+
+        btnSuma.setText("Suma");
+        btnSuma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSumaActionPerformed(evt);
+            }
+        });
+
+        lblResultado.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitulo)
-                    .addComponent(lblSubtitulo)
-                    .addComponent(btnClic1))
-                .addContainerGap(711, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSuma)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNum2, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                            .addComponent(txtNum1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                        .addComponent(lblResultado)
+                        .addGap(91, 91, 91))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(lblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblSubtitulo)
-                .addGap(18, 18, 18)
-                .addComponent(btnClic1)
-                .addContainerGap(403, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtNum1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNum2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(lblResultado)))
+                .addGap(20, 20, 20)
+                .addComponent(btnSuma)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("principal");
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cambioTextoClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambioTextoClic
+    private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
         // TODO add your handling code here:
-        lblTitulo.setText("Nuevo contenido modificado en tiempo de ejecucion");
-        JOptionPane.showMessageDialog(MiPantalla.this, "Mensaje Cambiado", "Acción personalizada", JOptionPane.ERROR_MESSAGE);
-    }//GEN-LAST:event_cambioTextoClic
+        suma();
+    }//GEN-LAST:event_btnSumaActionPerformed
+
+    private void txtNum1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNum1KeyReleased
+        // TODO add your handling code here:
+        suma();
+    }//GEN-LAST:event_txtNum1KeyReleased
+
+    private void txtNum2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNum2KeyReleased
+        // TODO add your handling code here:
+        suma();
+    }//GEN-LAST:event_txtNum2KeyReleased
 
     /**
      * @param args the command line arguments
@@ -125,8 +202,11 @@ public class MiPantalla extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClic1;
-    private javax.swing.JLabel lblSubtitulo;
-    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JButton btnSuma;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblResultado;
+    private javax.swing.JTextField txtNum1;
+    private javax.swing.JTextField txtNum2;
     // End of variables declaration//GEN-END:variables
 }
