@@ -5,44 +5,46 @@
 package interfaz;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
  * @author juanalvarenga
  */
 public class MiPantalla extends javax.swing.JFrame {
-    
+
     void suma() {
-        
+
         int num1 = 0;
         int num2 = 0;
-        
+
         try {
             String valor1 = txtNum1.getText();
             String valor2 = txtNum2.getText();
-            
-            String a = "a";
-            String b = "b";
-            String c = a+b;
-            
-//            if((a+b) == c) // false
-            
-            if (valor1.equals("") || valor2.equals("")) {
+
+            if (valor1.equals("") ) {
+                return;
+            }
+
+            num1 = Integer.parseInt(valor1); // retorna un String
+           
+            if( valor2.equals("")){
                 return;
             }
             
-            num1 = Integer.parseInt(valor1); // retorna un String
             num2 = Integer.parseInt(valor2); // retorna un String
 
             int resultado = num1 + num2;
-            
+
             lblResultado.setText(String.valueOf(resultado));
-            
+
         } catch (NumberFormatException e) {
-            
+
+            System.out.println(e.getMessage());
+
             JOptionPane.showMessageDialog(this, "Los valores enviados no son válidos", "Error!", JOptionPane.ERROR_MESSAGE);
         }
-        
+
     }
 
     /**
@@ -50,7 +52,7 @@ public class MiPantalla extends javax.swing.JFrame {
      */
     public MiPantalla() {
         initComponents();
-        
+
     }
 
     /**
@@ -156,14 +158,29 @@ public class MiPantalla extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSumaActionPerformed
 
     private void txtNum1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNum1KeyReleased
-        // TODO add your handling code here:
+        // TODO add your handling code here:\
+        if (evt.getKeyCode() == 10 || evt.getKeyCode() == 27) {
+            reset(txtNum1);
+            return;
+        }
+
         suma();
     }//GEN-LAST:event_txtNum1KeyReleased
 
     private void txtNum2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNum2KeyReleased
         // TODO add your handling code here:
+        if (evt.getKeyCode() == 10 || evt.getKeyCode() == 27) {
+               reset(txtNum2);
+            return;
+        }
+
         suma();
     }//GEN-LAST:event_txtNum2KeyReleased
+
+     void reset(JTextField ref) {
+        ref.setText("");
+        ref.requestFocus(); // asigna el cursor a la caja de texto
+    }
 
     /**
      * @param args the command line arguments
@@ -198,8 +215,9 @@ public class MiPantalla extends javax.swing.JFrame {
                 new MiPantalla().setVisible(true);
             }
         });
-        
+
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSuma;

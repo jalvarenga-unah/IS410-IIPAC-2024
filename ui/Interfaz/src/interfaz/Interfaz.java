@@ -15,14 +15,13 @@ public class Interfaz {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
         // Instancia del Frame a mostrar en pantalla
 //        new MiPantalla().setVisible(true);
             MiPantalla ventana = new MiPantalla(); 
             ventana.setVisible(true); // hacer visible la ventada
-            
 //            ventana.dispose(); // destruye de memoria la ventana
-        
+
     }
-    
+
 }
