@@ -4,6 +4,8 @@
  */
 package controles;
 
+import static java.lang.System.in;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 
@@ -16,14 +18,35 @@ public class LoginPage extends javax.swing.JFrame {
     //credenciales
     // clave / valor
     HashMap<String, String> credenciales = new HashMap();
+    HashMap<String, String> credenciales2 = new HashMap();
+    HashMap<String, String> credenciales3 = new HashMap();
 
+    HashMap[] usuarios = new HashMap[3];
+    ArrayList<HashMap> listadoUsuarios = new ArrayList();
+
+//     [ {usuario=juan,contrasenia=1234},{usuario=juan,contrasenia=1234},{usuario=juan,contrasenia=1234} ]
     /**
      * Creates new form LoginPage
      */
     public LoginPage() {
         initComponents();
+
         credenciales.put("usuario", "admin");
         credenciales.put("contrasenia", "1234");
+
+        credenciales2.put("usuario", "caja");
+        credenciales2.put("contrasenia", "1122");
+
+        credenciales3.put("usuario", "reportes");
+        credenciales3.put("contrasenia", "3344");
+
+        usuarios[0] = credenciales;
+        usuarios[1] = credenciales2;
+        usuarios[2] = credenciales3;
+
+        listadoUsuarios.add(credenciales);
+        listadoUsuarios.add(credenciales2);
+        listadoUsuarios.add(credenciales3);
 
     }
 
@@ -35,16 +58,38 @@ public class LoginPage extends javax.swing.JFrame {
         String user = txtUsuario.getText();
         String pwd = String.valueOf(txtContrasenia.getPassword());
 
-        if (!user.trim().equals(credenciales.get("usuario")) || 
-            !pwd.trim().equals(credenciales.get("contrasenia"))) {
-            
-            //NO puedo acceder al sistema
-            JOptionPane.showMessageDialog(this, "Acceso no autorizado", "Error al iniciar sesión",JOptionPane.ERROR_MESSAGE);
-            return;
+        //        for( HashMap usuario : usuarios ){
+//            
+//            if (user.trim().equals(usuario.get("usuario"))
+//                    && pwd.trim().equals(usuario.get("contrasenia"))) {
+//
+//                JOptionPane.showMessageDialog(this, "Bienvenido", "Pantalla principal", JOptionPane.INFORMATION_MESSAGE);
+//                return;
+//
+//            }
+//        }
 
+
+        HashMap temp = new HashMap();
+        temp.put("usuario", user);
+        temp.put("contrasenia", pwd);
+
+        boolean result = listadoUsuarios.contains(temp);
+
+        if (result) {
+            JOptionPane.showMessageDialog(this, "Bienvenido", "Pantalla principal", JOptionPane.INFORMATION_MESSAGE);
+            FormularioPage formulario = new FormularioPage();
+            formulario.setVisible(true);
+            
+            this.dispose();
+            
+            
+            return;
         }
-        
-        JOptionPane.showMessageDialog(this, "Bienvenido", "Pantalla principal",JOptionPane.INFORMATION_MESSAGE);
+
+
+        //NO puedo acceder al sistema
+        JOptionPane.showMessageDialog(this, "Acceso no autorizado", "Error al iniciar sesión", JOptionPane.ERROR_MESSAGE);
 
         //HashMap
     }
@@ -139,9 +184,16 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void terminosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminosActionPerformed
         // TODO add your handling code here:
-        
-        System.out.println(terminos.isSelected());
-        
+
+//        System.out.println(terminos.isSelected());
+        btnLogin.setEnabled(terminos.isSelected());
+
+//        if(terminos.isSelected()) {
+//            btnLogin.setEnabled(true);
+//        } else {
+//            btnLogin.setEnabled(false);
+//        }
+
     }//GEN-LAST:event_terminosActionPerformed
 
     /**
