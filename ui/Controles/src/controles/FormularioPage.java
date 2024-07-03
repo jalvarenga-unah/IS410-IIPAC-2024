@@ -26,21 +26,88 @@ public class FormularioPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupoMoneda = new javax.swing.ButtonGroup();
+        jLabel1 = new javax.swing.JLabel();
+        hnl = new javax.swing.JRadioButton();
+        usd = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        lblMoneda = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel1.setText("Uso de controles");
+
+        grupoMoneda.add(hnl);
+        hnl.setText("HNL");
+        hnl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hnlActionPerformed(evt);
+            }
+        });
+
+        grupoMoneda.add(usd);
+        usd.setText("USD");
+        usd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usdActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Seleccione una moneda:");
+
+        lblMoneda.setText("Moneda seleccionada:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(hnl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(usd)
+                        .addGap(81, 81, 81)
+                        .addComponent(lblMoneda))
+                    .addComponent(jLabel1))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 374, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(hnl)
+                    .addComponent(usd)
+                    .addComponent(lblMoneda))
+                .addContainerGap(325, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void usdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usdActionPerformed
+        // TODO add your handling code here:
+        if (usd.isSelected()) {
+//            lblMoneda.setText("Moneda seleccionada: "+ usd.getText());
+            lblMoneda.setText(String.format("Moneda seleccionada: %s", usd.getText()));
+        }
+    }//GEN-LAST:event_usdActionPerformed
+
+    private void hnlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hnlActionPerformed
+        // TODO add your handling code here:
+        if (hnl.isSelected()) {
+            lblMoneda.setText("Moneda seleccionada: " + hnl.getText());
+        }
+    }//GEN-LAST:event_hnlActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +145,11 @@ public class FormularioPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup grupoMoneda;
+    private javax.swing.JRadioButton hnl;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblMoneda;
+    private javax.swing.JRadioButton usd;
     // End of variables declaration//GEN-END:variables
 }

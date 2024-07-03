@@ -4,7 +4,6 @@
  */
 package controles;
 
-import static java.lang.System.in;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
@@ -75,12 +74,17 @@ public class LoginPage extends javax.swing.JFrame {
         temp.put("contrasenia", pwd);
 
         boolean result = listadoUsuarios.contains(temp);
-
+        
         if (result) {
+            
             JOptionPane.showMessageDialog(this, "Bienvenido", "Pantalla principal", JOptionPane.INFORMATION_MESSAGE);
+            
+            //Instanciar la nueva ventana
             FormularioPage formulario = new FormularioPage();
+            //Mostrarla
             formulario.setVisible(true);
             
+            //ocultar la pantalla anterior
             this.dispose();
             
             
