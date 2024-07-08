@@ -114,8 +114,9 @@ public class LoginPage extends javax.swing.JFrame {
         txtContrasenia = new javax.swing.JPasswordField();
         terminos = new javax.swing.JCheckBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Inicio de sesión");
+        setAlwaysOnTop(true);
 
         jLabel1.setText("Usuario");
 

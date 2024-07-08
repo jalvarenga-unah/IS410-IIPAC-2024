@@ -32,6 +32,7 @@ public class FormularioPage extends javax.swing.JFrame {
         usd = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         lblMoneda = new javax.swing.JLabel();
+        btnModal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +59,13 @@ public class FormularioPage extends javax.swing.JFrame {
 
         lblMoneda.setText("Moneda seleccionada:");
 
+        btnModal.setText("Mostar Modal");
+        btnModal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -65,6 +73,7 @@ public class FormularioPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnModal)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
@@ -87,7 +96,9 @@ public class FormularioPage extends javax.swing.JFrame {
                     .addComponent(hnl)
                     .addComponent(usd)
                     .addComponent(lblMoneda))
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(btnModal)
+                .addContainerGap(266, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,6 +119,17 @@ public class FormularioPage extends javax.swing.JFrame {
             lblMoneda.setText("Moneda seleccionada: " + hnl.getText());
         }
     }//GEN-LAST:event_hnlActionPerformed
+
+    private void btnModalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModalActionPerformed
+        // TODO add your handling code here:
+//        new LoginPage().setVisible(true);
+
+
+        MiModal modal = new MiModal(this , true);
+        
+        modal.setVisible(true);
+        
+    }//GEN-LAST:event_btnModalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,6 +167,7 @@ public class FormularioPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnModal;
     private javax.swing.ButtonGroup grupoMoneda;
     private javax.swing.JRadioButton hnl;
     private javax.swing.JLabel jLabel1;

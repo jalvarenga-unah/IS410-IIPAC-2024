@@ -30,6 +30,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnModal" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -57,7 +58,9 @@
                   <Component id="usd" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblMoneda" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="325" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Component id="btnModal" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="266" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,6 +105,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Moneda seleccionada:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnModal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mostar Modal"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModalActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
