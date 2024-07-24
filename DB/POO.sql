@@ -12,6 +12,8 @@ DROP TABLE clientes;
 
 -- Tabal de clientes: id, nombre, rtn, telefono, direccion
 
+-- el tipo "enum": enumera los valores iniciando desde "1"
+
 -- nomenclatura para creación de tablas: nombres deben ser en plural y minusculas y los nombres de los campos en singular
 
 CREATE TABLE clientes ( 
