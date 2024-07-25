@@ -4,7 +4,6 @@
  */
 package interfaz;
 
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -15,6 +14,8 @@ public class MiPantalla extends javax.swing.JFrame {
 
     void suma() {
 
+        lblError.setText("");
+
         int num1 = 0;
         int num2 = 0;
 
@@ -22,16 +23,16 @@ public class MiPantalla extends javax.swing.JFrame {
             String valor1 = txtNum1.getText();
             String valor2 = txtNum2.getText();
 
-            if (valor1.equals("") ) {
+            if (valor1.equals("")) {
                 return;
             }
 
             num1 = Integer.parseInt(valor1); // retorna un String
-           
-            if( valor2.equals("")){
+
+            if (valor2.equals("")) {
                 return;
             }
-            
+
             num2 = Integer.parseInt(valor2); // retorna un String
 
             int resultado = num1 + num2;
@@ -41,8 +42,9 @@ public class MiPantalla extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
 
             System.out.println(e.getMessage());
+            lblError.setText("Los valores enviados no son válidos");
 
-            JOptionPane.showMessageDialog(this, "Los valores enviados no son válidos", "Error!", JOptionPane.ERROR_MESSAGE);
+//            JOptionPane.showMessageDialog(this, "Los valores enviados no son válidos", "Error!", JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -70,6 +72,8 @@ public class MiPantalla extends javax.swing.JFrame {
         txtNum2 = new javax.swing.JTextField();
         btnSuma = new javax.swing.JButton();
         lblResultado = new javax.swing.JLabel();
+        lblError = new javax.swing.JLabel();
+        btnCalc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -103,6 +107,16 @@ public class MiPantalla extends javax.swing.JFrame {
 
         lblResultado.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
 
+        lblError.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        lblError.setForeground(new java.awt.Color(255, 51, 51));
+
+        btnCalc.setText("Calculadora");
+        btnCalc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,7 +125,12 @@ public class MiPantalla extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblError)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(btnSuma)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCalc)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,8 +161,12 @@ public class MiPantalla extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addComponent(lblResultado)))
                 .addGap(20, 20, 20)
-                .addComponent(btnSuma)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSuma)
+                    .addComponent(btnCalc))
+                .addGap(29, 29, 29)
+                .addComponent(lblError)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("principal");
@@ -170,14 +193,25 @@ public class MiPantalla extends javax.swing.JFrame {
     private void txtNum2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNum2KeyReleased
         // TODO add your handling code here:
         if (evt.getKeyCode() == 10 || evt.getKeyCode() == 27) {
-               reset(txtNum2);
+            reset(txtNum2);
             return;
         }
 
         suma();
     }//GEN-LAST:event_txtNum2KeyReleased
 
-     void reset(JTextField ref) {
+    private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
+        // TODO add your handling code here:
+        
+        Calculadora c = new Calculadora();
+        c.setVisible(true);
+        
+        // Aplicar color de fondo seleccionado en las propiedades
+        c.getContentPane().setBackground(c.getBackground());
+
+    }//GEN-LAST:event_btnCalcActionPerformed
+
+    void reset(JTextField ref) {
         ref.setText("");
         ref.requestFocus(); // asigna el cursor a la caja de texto
     }
@@ -220,9 +254,11 @@ public class MiPantalla extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCalc;
     private javax.swing.JButton btnSuma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblError;
     private javax.swing.JLabel lblResultado;
     private javax.swing.JTextField txtNum1;
     private javax.swing.JTextField txtNum2;
