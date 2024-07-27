@@ -64,19 +64,30 @@ public class ClientesDB {
     Cliente getClienteById(int id) {
         Connection conn = DatabaseConnection.getConnection();
 
+        Cliente temp = null;
+
         try {
 
             PreparedStatement stmt
-                    = conn.prepareStatement("SELECT * FROM clientes WHERE cliente_id = ?");
+                    = conn.prepareStatement("SELECT * FROM clientes "
+                            + "WHERE cliente_id = ? ");// yo sería el responsable de parsear o tratar ese parametro
 
             //enviar los parametros a la consulta
-            stmt.setInt(1, id);
+            stmt.setInt(1, id);// se asegura de escapar cualquier inyección no deseada
 
             ResultSet respuesta = stmt.executeQuery();
 
             while (respuesta.next()) {
 
-                System.out.println(respuesta.getString("nombre"));
+                temp = new Cliente(
+                        respuesta.getInt("cliente_id"),
+                        respuesta.getString("nombre"),
+                        respuesta.getString("correo"),
+                        respuesta.getString("rtn"),
+                        respuesta.getString("estado"),
+                        respuesta.getString("fecha_creacion")
+                );
+                
             }
 
         } catch (SQLException error) {
@@ -90,12 +101,10 @@ public class ClientesDB {
                 System.out.println(error.getMessage());
             }
         }
-        
-        return null;
+
+        return temp;
 
     }
-    
-    //TODO: deben crear, el metodo para crear, actualizar y eliminar un cliente
-    
 
+    //TODO: deben crear, el metodo para crear, actualizar y eliminar un cliente
 }

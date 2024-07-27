@@ -28,7 +28,6 @@ public class DatabaseConnection {
 
         try {
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Conexión realizada correctamente");
         } catch (SQLException error) {
             System.out.println(error.getMessage());
         }

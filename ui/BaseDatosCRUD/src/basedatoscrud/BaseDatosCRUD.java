@@ -18,15 +18,13 @@ public class BaseDatosCRUD {
     public static void main(String[] args) {
         // TODO code application logic here
         
-//        Connection conn = DatabaseConnection.getConnection();
+        VistaCliente vista = new VistaCliente();
+        vista.setVisible(true);
         
-        ClientesDB clientes = new ClientesDB();
         
-        var respuesta =  clientes.getClientes();
         
-        var cliente1 =  clientes.getClienteById(1);
+//        var cliente1 =  clientes.getClienteById(1); // obtener un cliente por ID
         
-        System.out.println(respuesta);
         
     }
     
