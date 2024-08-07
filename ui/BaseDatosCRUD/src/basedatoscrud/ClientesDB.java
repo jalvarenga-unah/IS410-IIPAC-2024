@@ -17,7 +17,6 @@ import java.util.List;
  */
 public class ClientesDB {
 
-    private Connection conn;
 
     List<Cliente> getClientes() {
         Connection conn = DatabaseConnection.getConnection();

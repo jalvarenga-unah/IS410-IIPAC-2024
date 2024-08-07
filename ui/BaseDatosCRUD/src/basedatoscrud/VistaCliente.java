@@ -4,8 +4,13 @@
  */
 package basedatoscrud;
 
+
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -102,7 +107,7 @@ public class VistaCliente extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_formWindowOpened
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
